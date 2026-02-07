@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Welcome - Heal Talk</title>
+    <link rel="stylesheet" href="index.css" />
+  </head>
+
+  <body>
+    <!-- ⭐ NAVBAR ADDED HERE -->
+    <nav class="navbar">
+      <div class="logo">Heal Talk : Emotion-Based Ai Chatbot</div>
+
+      <ul>
+        <li><a href="about.html">About</a></li>
+        <li><a href="chatbot.html">Chatbot</a></li>
+        <!-- <li><a href="signup.html">Signup</a></li>
+        <li><a href="login.html">Login</a></li> -->
+      </ul>
+    </nav>
+
+    <div class="container">
+      <!-- Left Section: Greeting -->
+      <div class="welcome-box">
+        <h1>Welcome to <span>Heal Talk</span></h1>
+        <p class="subtitle">Your Emotion-Based AI Companion 💙</p>
+
+        <form id="welcomeForm">
+          <input
+            type="text"
+            id="userName"
+            placeholder="Enter your Name"
+            required
+          />
+          <input
+            type="number"
+            id="userAge"
+            placeholder="Enter your Age"
+            required
+          />
+
+          <h3>Select Your Avatar</h3>
+
+          <div class="avatar-list">
+            <img
+              src="vecteezy_ai-generated-female-teacher-with-glasses-cartoon-illustration_34813199.png"
+              class="avatar"
+              onclick="selectAvatar(this)"
+            />
+            <img
+              src="modern-male-avatar-with-black-hair-and-hoodie-illustration-free-png.webp"
+              class="avatar"
+              onclick="selectAvatar(this)"
+            />
+            <img
+              src="vecteezy_ai-generated-female-teacher-with-glasses-illustration_34950276.png"
+              class="avatar"
+              onclick="selectAvatar(this)"
+            />
+            <img
+              src="vecteezy_young-smiling-man-head-avatar-with-brown-beard-3d-people_48216763.png"
+              class="avatar"
+              onclick="selectAvatar(this)"
+            />
+          </div>
+
+          <button type="submit">Continue</button>
+
+          <p id="msg"></p>
+        </form>
+      </div>
+
+      <!-- Right Section: Illustration -->
+      <div class="side-image">
+        <img
+          src="bf1f5b80-ced9-41ad-9fdd-fd2e97342aa6.png"
+          alt="Heal Talk AI"
+        />
+      </div>
+    </div>
+
+    <!-- ================= FOOTER ================= -->
+    <footer class="footer">
+      <div class="footer-container">
+        <div class="footer-section">
+          <h3>Heal Talk</h3>
+          <p>
+            Your Emotion-Based AI Companion — built to support, guide, and heal.
+          </p>
+        </div>
+
+        <div class="footer-section">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="chatbot.html">Chatbot</a></li>
+            <li><a href="signup.html">Signup</a></li>
+            <li><a href="login.html">Login</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-section">
+          <h4>Contact Us</h4>
+          <p>
+            Email:
+            <a href="mailto:healtalk.support@gmail.com"
+              >healtalk.support@gmail.com</a
+            >
+          </p>
+          <p>Phone: +91 98765 43210</p>
+          <p>Address: Bhopall, Madhya Pradesh, India</p>
+        </div>
+
+        <div class="footer-section">
+          <h4>Follow Us</h4>
+          <div class="social-icons">
+            <a href="#">🌐</a>
+            <a href="#">📘</a>
+            <a href="#">📸</a>
+            <a href="#">🐦</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>© 2025 Heal Talk. All Rights Reserved.</p>
+      </div>
+    </footer>
+
+    <script src="index.js"></script>
+  </body>
+</html>

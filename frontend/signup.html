@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Heal Talk - Signup</title>
+    <link rel="stylesheet" href="signup.css" />
+  </head>
+
+  <body>
+    <!-- ⭐ NAVBAR ADDED HERE -->
+    <nav class="navbar">
+      <div class="logo">Heal Talk : Emotion-Based Ai Chatbot</div>
+
+      <ul>
+        <li><a href="about.html">About</a></li>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="chatbot2.html">Chatbot</a></li>
+        <li><a href="login.html">Login</a></li>
+      </ul>
+    </nav>
+
+    <!-- ⭐ OUTER BOX WRAPPER ADDED HERE -->
+    <div class="outer-box">
+      <!-- ⭐ SIGNUP FORM -->
+      <div class="signup-container">
+        <h2>Heal Talk</h2>
+        <p class="subtitle">Emotion-Based AI Chatbot</p>
+
+        <form id="signupForm">
+          <input type="text" id="name" placeholder="Full Name" required />
+          <input type="email" id="email" placeholder="Email Address" required />
+          <input
+            type="password"
+            id="password"
+            placeholder="Password"
+            required
+          />
+          <input
+            type="password"
+            id="confirmPassword"
+            placeholder="Confirm Password"
+            required
+          />
+
+          <button type="submit">Create Account</button>
+
+          <p id="message"></p>
+        </form>
+      </div>
+    </div>
+
+    <script src="signup.js"></script>
+  </body>
+</html>

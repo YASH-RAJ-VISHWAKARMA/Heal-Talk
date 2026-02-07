@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Mental Health Assistant</title>
+
+    <style>
+      :root {
+        /* Dark Theme Colors */
+        --bg-gradient: linear-gradient(
+          -45deg,
+          #0f2027,
+          #0a1a33,
+          #2c5364,
+          #1a1a2e
+        );
+        --card-bg: rgba(16, 24, 40, 0.75);
+        --card-border: rgba(255, 255, 255, 0.1);
+        --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5);
+
+        --text-main: #ecf0f1;
+        --text-muted: #aab7c4;
+
+        --accent-color: #4cc9f0;
+        --accent-gradient: linear-gradient(135deg, #4cc9f0, #4361ee);
+
+        --bot-bubble: #1e293b;
+        --user-bubble: #4cc9f0;
+        --user-text: #0f172a;
+
+        --input-bg: rgba(30, 41, 59, 0.95);
+      }
+
+      /* GLOBAL RESET */
+      html,
+      body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+      }
+
+      /* FIX: Allow page scroll + spacing below navbar */
+      body {
+        background: var(--bg-gradient);
+        background-size: 400% 400%;
+        animation: gradientBG 15s ease infinite;
+        color: var(--text-main);
+
+        padding-top: 70px; /* Navbar height */
+        overflow-y: auto; /* Restore scroll */
+      }
+
+      /* Background Animation */
+      @keyframes gradientBG {
+        0% {
+          background-position: 0% 50%;
+        }
+        50% {
+          background-position: 100% 50%;
+        }
+        100% {
+          background-position: 0% 50%;
+        }
+      }
+
+      /* CHAT CARD */
+      .chat-card {
+        width: 95%;
+        max-width: 1000px;
+        height: 85vh;
+
+        margin: 20px auto 0 auto; /* FIX: Add spacing below navbar */
+
+        display: flex;
+        border-radius: 24px;
+        background: var(--card-bg);
+        backdrop-filter: blur(12px);
+        border: 1px solid var(--card-border);
+        box-shadow: var(--glass-shadow);
+        overflow: hidden;
+      }
+
+      /* NAVBAR */
+      .navbar {
+        width: 97%;
+        height: 60px;
+        background: rgba(16, 24, 40, 0.8);
+        backdrop-filter: blur(12px);
+        border-bottom: 1px solid var(--card-border);
+
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 25px;
+
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 50;
+      }
+
+      .navbar .logo {
+        font-size: 20px;
+        font-weight: 700;
+        color: var(--accent-color);
+      }
+
+      .navbar ul {
+        list-style: none;
+        display: flex;
+        gap: 20px;
+      }
+
+      .navbar ul li a {
+        color: var(--text-main);
+        text-decoration: none;
+        font-size: 15px;
+      }
+
+      .navbar ul li a:hover {
+        color: var(--accent-color);
+      }
+
+      /* SIDEBAR */
+      .sidebar {
+        width: 280px;
+        padding: 25px;
+        background: rgba(255, 255, 255, 0.05);
+        border-right: 1px solid var(--card-border);
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+      }
+
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+
+      .logo-box {
+        width: 48px;
+        height: 48px;
+        background: var(--accent-gradient);
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-weight: bold;
+        font-size: 20px;
+      }
+
+      .brand-text h1 {
+        margin: 0;
+        font-size: 18px;
+      }
+
+      .info-box {
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid var(--card-border);
+        padding: 15px;
+        border-radius: 16px;
+        font-size: 13px;
+        line-height: 1.5;
+        color: var(--text-muted);
+      }
+
+      .avatar-container {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        min-height: 150px;
+      }
+
+      .avatar-glow {
+        position: absolute;
+        width: 120px;
+        height: 120px;
+        background: rgba(0, 255, 170, 0.4);
+        filter: blur(40px);
+        border-radius: 50%;
+        animation: pulseGlow 3s infinite ease-in-out;
+      }
+
+      .avatar-img {
+        width: 140px;
+        height: auto;
+        z-index: 2;
+      }
+
+      @keyframes pulseGlow {
+        0% {
+          transform: scale(1);
+          opacity: 0.4;
+        }
+        50% {
+          transform: scale(1.1);
+          opacity: 0.6;
+        }
+        100% {
+          transform: scale(1);
+          opacity: 0.4;
+        }
+      }
+
+      /* CHAT AREA */
+      .chat-area {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .chat-header {
+        padding: 15px 25px;
+        border-bottom: 1px solid var(--card-border);
+        background: rgba(255, 255, 255, 0.02);
+        display: flex;
+        justify-content: space-between;
+      }
+
+      .bot-profile {
+        display: flex;
+        gap: 12px;
+        align-items: center;
+      }
+
+      .messages-container {
+        flex: 1;
+        overflow-y: auto;
+        padding: 25px;
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+      }
+
+      /* BUBBLES */
+      .message-row {
+        display: flex;
+        gap: 10px;
+        align-items: flex-end;
+      }
+
+      .message-row.user {
+        flex-direction: row-reverse;
+      }
+
+      .bubble {
+        max-width: 70%;
+        padding: 12px 18px;
+        border-radius: 18px;
+        font-size: 15px;
+        line-height: 1.5;
+      }
+
+      .bubble.bot {
+        background: var(--bot-bubble);
+        color: var(--text-main);
+      }
+
+      .bubble.user {
+        background: var(--accent-gradient);
+        color: var(--user-text);
+      }
+
+      /* INPUT AREA */
+      .input-area {
+        padding: 20px;
+        border-top: 1px solid var(--card-border);
+        display: flex;
+        gap: 12px;
+        background: rgba(255, 255, 255, 0.02);
+      }
+
+      .chat-input {
+        flex: 1;
+        padding: 14px 20px;
+        border-radius: 30px;
+        border: 1px solid var(--card-border);
+        background: var(--input-bg);
+        color: var(--text-main);
+        font-size: 15px;
+      }
+
+      .send-btn {
+        background: var(--accent-gradient);
+        border: none;
+        color: white;
+        width: 48px;
+        height: 48px;
+        border-radius: 50%;
+        cursor: pointer;
+      }
+
+      @media (max-width: 768px) {
+        .chat-card {
+          width: 100%;
+          height: 100vh;
+          border-radius: 0;
+        }
+        .sidebar {
+          display: none;
+        }
+        .bubble {
+          max-width: 85%;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <nav class="navbar">
+      <div class="logo">Heal Talk: Emotion-Based AI Chatbot</div>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+      </ul>
+    </nav>
+
+    <div class="chat-card">
+      <div class="sidebar">
+        <div class="brand">
+          <div class="logo-box">HT</div>
+          <div class="brand-text">
+            <h1>Heal Talk</h1>
+            <p>Wellness Assistant</p>
+          </div>
+        </div>
+
+        <div class="info-box">
+          <strong>Welcome</strong><br />
+          This is a safe space to talk about your feelings.
+        </div>
+
+        <div class="avatar-container">
+          <div class="avatar-glow"></div>
+          <img src="chatbot_avatar.png" class="avatar-img" />
+        </div>
+
+        <div class="info-box">
+          <small>Confidential & Private<br />Not for emergencies.</small>
+        </div>
+      </div>
+
+      <div class="chat-area">
+        <div class="chat-header">
+          <div class="bot-profile">
+            <img
+              src="chatbot_avatar.png"
+              style="width: 40px; height: 40px; border-radius: 50%"
+            />
+            <div>
+              <h3 style="margin: 0; font-size: 16px">Assistant</h3>
+              <span style="font-size: 12px; color: var(--text-muted)"
+                >● Online</span
+              >
+            </div>
+          </div>
+        </div>
+
+        <div class="messages-container" id="messages">
+          <div
+            style="
+              text-align: center;
+              font-size: 12px;
+              color: var(--text-muted);
+            "
+          >
+            Today
+          </div>
+        </div>
+
+        <div class="input-area">
+          <input
+            type="text"
+            class="chat-input"
+            id="userInput"
+            placeholder="Type a message..."
+          />
+          <button class="send-btn" id="sendBtn">➤</button>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      const messagesEl = document.getElementById("messages");
+      const inputEl = document.getElementById("userInput");
+      const sendBtn = document.getElementById("sendBtn");
+
+      function addMessage(text, isUser = false) {
+        const row = document.createElement("div");
+        row.className = `message-row ${isUser ? "user" : "bot"}`;
+
+        const bubble = document.createElement("div");
+        bubble.className = `bubble ${isUser ? "user" : "bot"}`;
+        bubble.innerText = text;
+
+        row.appendChild(bubble);
+        messagesEl.appendChild(row);
+        messagesEl.scrollTop = messagesEl.scrollHeight;
+      }
+
+      async function handleSend() {
+        const text = inputEl.value.trim();
+        if (!text) return;
+
+        addMessage(text, true);
+        inputEl.value = "";
+
+        addMessage("Typing...", false);
+
+        const raw = await fetch("http://127.0.0.1:5000/api/predict", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ message: text }),
+        });
+
+        const data = await raw.json();
+        messagesEl.lastChild.remove();
+        addMessage(data.response, false);
+      }
+
+      sendBtn.addEventListener("click", handleSend);
+      inputEl.addEventListener("keypress", (e) => {
+        if (e.key === "Enter") handleSend();
+      });
+
+      setTimeout(() => {
+        addMessage("Hi there! How are you feeling today?");
+      }, 500);
+    </script>
+  </body>
+</html>

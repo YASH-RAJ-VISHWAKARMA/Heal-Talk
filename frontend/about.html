@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Heal-Talk : Emotion-Based Ai Chatbot</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Open+Sans&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="about.css" />
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar">
+      <div class="nav-container">
+        <div class="nav-logo">Heal Talk</div>
+        <ul class="nav-links">
+          <li><a href="index.html">Index</a></li>
+          <li><a href="signup.html">Signup</a></li>
+          <li><a href="chatbot2.html">Chatbot</a></li>
+          <li><a href="login.html">Login</a></li>
+        </ul>
+      </div>
+    </nav>
+    <div class="container">
+      <h1 id="aboutHeading">Heal Talk : Emotion-Based Ai Chatbot</h1>
+
+      <div class="section">
+        <div class="section-img">
+          <img
+            src="79e07681-76b8-4ec0-912c-ae8210516520.png"
+            alt="Owner Words"
+          />
+        </div>
+        <div class="section-content">
+          <h2>Words by Our Founders</h2>
+          <p>
+            "Heal Talk was born from a simple belief — no one should feel alone
+            in their toughest moments. Technology should not only solve
+            problems, it should touch hearts. This chatbot is our effort to
+            bring comfort, understanding, and emotional support to anyone who
+            needs a safe space to talk. If Heal Talk becomes even a small light
+            in someone’s dark day, we have succeeded."
+          </p>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-img">
+          <img
+            src="360_F_823958944_1c9covIC7Tl7eyJtWoTiXc0L4vP6f43q.jpg"
+            alt="History"
+          />
+        </div>
+        <div class="section-content">
+          <h2>Our History</h2>
+          <p>
+            Heal Talk was created with a simple goal — to provide emotional
+            support through technology. The idea started when the creators
+            realized that many people feel unheard, even with so many digital
+            tools around. So, they built an AI chatbot that understands
+            emotions, not just words. What began as a small college project soon
+            grew into a meaningful wellbeing tool. With improved emotion
+            detection, comforting responses, and a calm interface, Heal Talk
+            became a safe space for people to express their feelings anytime.
+            Today, Heal Talk stands as a reminder that technology can care,
+            listen, and help heal — one conversation at a time.
+          </p>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-img">
+          <img src="Blue Simple Personal Logo (1).png" alt="Showrooms" />
+        </div>
+        <div class="section-content">
+          <h2>Our Operating Chains</h2>
+          <p>
+            Heal Talk currently operates through a growing network of digital
+            wellness platforms and partner centers, making emotional support
+            accessible from multiple locations.
+          </p>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-img">
+          <img src="Blue Simple Personal Logo (4).png" alt="Manufacturing" />
+        </div>
+        <div class="section-content">
+          <h2>Our Manufacturing Unit</h2>
+          <p>
+            Our manufacturing unit for HEAL TALK focuses on designing,
+            developing, and testing advanced AI systems that understand human
+            emotions. We combine NLP, machine learning, psychological research,
+            and a secure cloud infrastructure to create a reliable and
+            empathetic mental-wellness chatbot. The unit includes modules for
+            emotion detection, response generation, UI/UX design, and continuous
+            model improvement—ensuring high accuracy, safety, and a seamless
+            user experience.
+          </p>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-img">
+          <img src="AI-powered-chatbot.png" alt="R&D" />
+        </div>
+        <div class="section-content">
+          <h2>Research & Development</h2>
+          <p>
+            The R&D journey of HEAL TALK focused on blending emotional
+            intelligence with advanced AI to create a supportive, empathetic,
+            and impactful mental-wellness chatbot. Through deep research,
+            ethical development, and user-centered testing, HEAL TALK aims to
+            provide a reliable emotional support companion for everyday mental
+            wellness.
+          </p>
+        </div>
+      </div>
+
+      <!-- <div class="section">
+        <div class="section-img">
+          <img
+            src="C:\Users\pranj\OneDrive\Desktop\projects\chatbot clone\79e07681-76b8-4ec0-912c-ae8210516520 - Copy.png"
+            alt="Staff"
+          />
+        </div> -->
+        <!-- <div class="section-content">
+          <h2>Meet Our Staff</h2>
+          <p>
+            We are a family of 200+ creatives, dreamers, and doers. From design
+            consultants and artisans to marketing strategists and floor
+            managers, each member of Maison Vintique brings their passion and
+            personality into our collective mission—to elevate homes with warmth
+            and wonder. We don’t just hire talent; we nurture it.
+          </p>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-img">
+          <img src="life.jpg" alt="Life at Maison" />
+        </div>
+        <div class="section-content">
+          <h2>Life at Maison Vintique</h2>
+          <p>
+            From mood-board Mondays to chai chats in design lounges — life at
+            Maison is beautifully chaotic. Our workspace blends creativity with
+            calm, deadlines with laughter, and art with purpose. It’s not just a
+            company; it’s a culture where inspiration is served fresh with
+            morning coffee and where every idea has a place to bloom.
+          </p>
+        </div> -->
+      </div>
+    </div>
+
+    <!-- GSAP Animations -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script>
+      gsap.registerPlugin(ScrollTrigger);
+
+      gsap.from("#aboutHeading", {
+        text: "About Maison Vintique",
+        duration: 3,
+        ease: "power2.out",
+        delay: 0.5,
+        opacity: 0,
+        scale: 0.8,
+      });
+
+      document.querySelectorAll(".section").forEach((section, index) => {
+        gsap.from(section.querySelector(".section-img"), {
+          scrollTrigger: {
+            trigger: section,
+            start: "top 80%",
+          },
+          x: index % 2 === 0 ? -100 : 100,
+          opacity: 0,
+          duration: 1,
+          ease: "power2.out",
+        });
+
+        gsap.from(section.querySelector(".section-content"), {
+          scrollTrigger: {
+            trigger: section,
+            start: "top 80%",
+          },
+          x: index % 2 === 0 ? 100 : -100,
+          opacity: 0,
+          duration: 1.2,
+          ease: "power3.out",
+        });
+      });
+    </script>
+
+    <!-- ================= FOOTER ================= -->
+    <footer class="footer">
+      <div class="footer-container">
+        <div class="footer-section">
+          <h3>Heal Talk</h3>
+          <p>
+            Your Emotion-Based AI Companion — built to support, guide, and heal.
+          </p>
+        </div>
+
+        <div class="footer-section">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="chatbot.html">Chatbot</a></li>
+            <li><a href="signup.html">Signup</a></li>
+            <li><a href="login.html">Login</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-section">
+          <h4>Contact Us</h4>
+          <p>
+            Email:
+            <a href="mailto:healtalk.support@gmail.com"
+              >healtalk.support@gmail.com</a
+            >
+          </p>
+          <p>Phone: +91 98765 43210</p>
+          <p>Address: Bhopall, Madhya Pradesh, India</p>
+        </div>
+
+        <div class="footer-section">
+          <h4>Follow Us</h4>
+          <div class="social-icons">
+            <a href="#">🌐</a>
+            <a href="#">📘</a>
+            <a href="#">📸</a>
+            <a href="#">🐦</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>© 2025 Heal Talk. All Rights Reserved.</p>
+      </div>
+    </footer>
+  </body>
+</html>
